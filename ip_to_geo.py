@@ -26,7 +26,7 @@ def ip_to_geo_using_freegeoip(ip):
         "Content-Type": "application/json"
     }
     geo_info = requests.get(url, headers=headers).json()
-    if geo_info['message']:
+    if 'message' in geo_info.keys():
         geo_info['message'] = f'FreeGeoIP {geo_info["message"]}'
     return geo_info
 
